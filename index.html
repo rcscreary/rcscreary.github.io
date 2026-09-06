@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="R.C.S. Creary — independent author, systems researcher, and creator. Newsletter, books, shop, and Real Realize.">
+  <meta name="theme-color" content="#1a2740">
+  <title>R.C.S. Creary — Author &amp; Creator</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="R.C.S. Creary home">
+        <img class="brand-seal" src="assets/seal.png" width="48" height="26" alt="">
+        <span class="brand-text">R.C.S. Creary</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#subscribe">Subscribe</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#books">Books</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#follow">Follow</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Author · Systems Researcher · Creator</p>
+          <h1 id="hero-heading">Ideas, stories &amp; systems that keep people whole.</h1>
+          <p class="lede">
+            R.C.S. Creary builds at the intersection of culture, technology, education, and story —
+            fiction that moves, education writing that names the mismatch, and tools for people
+            who refuse to be flattened by the systems around them.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#subscribe">Join the newsletter</a>
+            <a class="btn btn-ghost" href="#shop">Browse the shop</a>
+          </div>
+        </div>
+        <div class="hero-mark">
+          <img src="assets/seal.png" width="420" height="229" alt="R.C.S. Creary seal — Systems Researcher, Author, Innovation &amp; Integrity">
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE -->
+    <section class="section section-subscribe" id="subscribe" aria-labelledby="subscribe-heading">
+      <div class="container narrow">
+        <div class="subscribe-card">
+          <p class="eyebrow gold">Free newsletter</p>
+          <h2 id="subscribe-heading">Stay in the circle</h2>
+          <p class="section-intro">
+            Essays on education and systems, book news, shop drops, and the Real Realize worldview —
+            delivered on a human schedule. No spam. Unsubscribe anytime.
+          </p>
+          <!--
+            Plug in a free provider:
+            - Buttondown: action="https://buttondown.email/api/emails/embed-subscribe/YOUR-USERNAME"
+            - Beehiiv / Mailchimp: replace action with your embed form URL
+            See README.md for setup steps.
+          -->
+          <form class="subscribe-form" id="subscribe-form" action="#" method="post" novalidate>
+            <label class="sr-only" for="email">Email address</label>
+            <div class="subscribe-row">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+                placeholder="you@example.com"
+                aria-describedby="subscribe-note">
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
+            <p class="form-note" id="subscribe-note">
+              Collects email only. Connect this form to Beehiiv, Buttondown, or Mailchimp (see README).
+            </p>
+            <p class="form-status" id="subscribe-status" role="status" aria-live="polite" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP -->
+    <section class="section" id="shop" aria-labelledby="shop-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Shop &amp; products</p>
+          <h2 id="shop-heading">Beyond the bookshelf</h2>
+          <p class="section-intro">
+            Printables, downloadables, and tools under the R.C.S. Creary / Real Realize brand.
+            Shop links open external marketplaces — replace placeholders with your live store URLs when ready.
+          </p>
+        </header>
+
+        <div class="card-grid shop-grid">
+          <article class="card product-card">
+            <div class="card-kicker">Printables</div>
+            <h3>R.C.S. Creary Shop</h3>
+            <p>Education worksheets, planners, and printable kits for homes and classrooms.</p>
+            <p class="status"><span class="dot live"></span> Etsy / Gumroad ready</p>
+            <a class="btn btn-secondary" href="https://www.etsy.com" rel="noopener noreferrer" target="_blank">Visit shop (placeholder)</a>
+          </article>
+
+          <article class="card product-card">
+            <div class="card-kicker">Downloadables</div>
+            <h3>Digital packs</h3>
+            <p>Instant-download guides, templates, and study aids tied to the Great Mismatch / Rebuild ideas.</p>
+            <p class="status"><span class="dot soon"></span> Listing TBD</p>
+            <a class="btn btn-secondary" href="https://gumroad.com" rel="noopener noreferrer" target="_blank">Gumroad (placeholder)</a>
+          </article>
+
+          <article class="card product-card">
+            <div class="card-kicker">Courses &amp; workbooks</div>
+            <h3>Learning tracks</h3>
+            <p>Self-paced workbooks and short courses on agency, systems literacy, and education redesign.</p>
+            <p class="status"><span class="dot soon"></span> In planning</p>
+            <a class="btn btn-ghost-dark" href="#subscribe">Get notified</a>
+          </article>
+
+          <article class="card product-card">
+            <div class="card-kicker">Merch</div>
+            <h3>Real Realize gear</h3>
+            <p>Brand merch and conversation-starters — secondary shop line under Real Realize.</p>
+            <p class="status"><span class="dot soon"></span> Coming later</p>
+            <a class="btn btn-ghost-dark" href="#subscribe">Join the list</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKS -->
+    <section class="section section-alt" id="books" aria-labelledby="books-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Books</p>
+          <h2 id="books-heading">Fiction &amp; education nonfiction</h2>
+          <p class="section-intro">
+            Romance, thriller, picture books, and education writing. Buy links go to
+            <a href="https://www.amazon.com/author/rcscreary" rel="noopener noreferrer" target="_blank">Amazon Author Central</a>
+            until individual ASINs are wired in.
+          </p>
+        </header>
+
+        <div class="card-grid books-grid">
+          <article class="card book-card">
+            <div class="card-kicker">Education nonfiction</div>
+            <h3>The Great Mismatch</h3>
+            <p>How education systems and human potential miss each other — and what dignity-centered redesign requires.</p>
+            <p class="status"><span class="dot live"></span> Published</p>
+            <a class="btn btn-secondary" href="https://www.amazon.com/author/rcscreary" rel="noopener noreferrer" target="_blank">Buy on Amazon</a>
+          </article>
+
+          <article class="card book-card">
+            <div class="card-kicker">Education sequel</div>
+            <h3>The Great Rebuild</h3>
+            <p>The practical follow-on: rebuilding pathways so learners keep agency inside complex systems.</p>
+            <p class="status"><span class="dot soon"></span> In progress</p>
+            <a class="btn btn-ghost-dark" href="#subscribe">Follow progress</a>
+          </article>
+
+          <article class="card book-card">
+            <div class="card-kicker">Thriller</div>
+            <h3>Never Lie</h3>
+            <p>High-stakes fiction where truth, leverage, and survival collide.</p>
+            <p class="status"><span class="dot live"></span> Published</p>
+            <a class="btn btn-secondary" href="https://www.amazon.com/author/rcscreary" rel="noopener noreferrer" target="_blank">Buy on Amazon</a>
+          </article>
+
+          <article class="card book-card">
+            <div class="card-kicker">Contemporary romance</div>
+            <h3>What the Baby Hears</h3>
+            <p>A contemporary romance about love, listening, and the futures we speak into being.</p>
+            <p class="status"><span class="dot live"></span> Published / listing ready</p>
+            <a class="btn btn-secondary" href="https://www.amazon.com/author/rcscreary" rel="noopener noreferrer" target="_blank">Buy on Amazon</a>
+          </article>
+
+          <article class="card book-card">
+            <div class="card-kicker">Contemporary romance</div>
+            <h3>The Longest Flight Home</h3>
+            <p>Distance, return, and the courage it takes to choose home again.</p>
+            <p class="status"><span class="dot live"></span> Published / listing ready</p>
+            <a class="btn btn-secondary" href="https://www.amazon.com/author/rcscreary" rel="noopener noreferrer" target="_blank">Buy on Amazon</a>
+          </article>
+
+          <article class="card book-card">
+            <div class="card-kicker">Picture book series</div>
+            <h3>Marcus Draws the Line</h3>
+            <p>A picture-book series about boundaries, creativity, and standing tall.</p>
+            <p class="status"><span class="dot live"></span> Published</p>
+            <a class="btn btn-secondary" href="https://www.amazon.com/author/rcscreary" rel="noopener noreferrer" target="_blank">Buy on Amazon</a>
+          </article>
+        </div>
+
+        <p class="brand-note">
+          <strong>Real Realize</strong> is the secondary shop and brand line for tools, merch, and community offerings.
+        </p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">About</p>
+          <h2 id="about-heading">R.C.S. Creary</h2>
+          <p>
+            R.C.S. Creary is an independent author and systems researcher. The work moves between
+            culture, technology, education, and story — how people keep dignity and agency inside
+            systems that would flatten them.
+          </p>
+          <p>
+            Fiction spans romance, thriller, and picture books. Education nonfiction includes
+            <em>The Great Mismatch</em>, with sequel <em>The Great Rebuild</em> in progress.
+            Through Real Realize, the same questions become products, printables, and conversations
+            for readers who want more than a passive feed.
+          </p>
+          <a class="btn btn-primary" href="https://www.amazon.com/author/rcscreary" rel="noopener noreferrer" target="_blank">Amazon Author Central</a>
+        </div>
+        <aside class="about-aside" aria-label="Focus areas">
+          <ul class="pillars">
+            <li>
+              <strong>Culture</strong>
+              <span>Stories that refuse erasure</span>
+            </li>
+            <li>
+              <strong>Technology</strong>
+              <span>Tools that serve people, not the reverse</span>
+            </li>
+            <li>
+              <strong>Education</strong>
+              <span>Mismatch named; rebuild underway</span>
+            </li>
+            <li>
+              <strong>Story</strong>
+              <span>Romance, thriller, picture books</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOLLOW / FOOTER -->
+  <footer class="site-footer" id="follow">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/seal.png" width="120" height="65" alt="R.C.S. Creary seal">
+        <p>Innovation &amp; integrity. Stories and systems for people who stay whole.</p>
+      </div>
+      <div class="footer-links">
+        <h2 class="footer-heading">Follow</h2>
+        <ul>
+          <li><a href="https://www.amazon.com/author/rcscreary" rel="noopener noreferrer" target="_blank">Amazon Author</a></li>
+          <li><a href="#subscribe">Newsletter</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#books">Books</a></li>
+        </ul>
+        <p class="footer-social-note">Add LinkedIn, X, Instagram, or YouTube URLs here when ready.</p>
+      </div>
+      <div class="footer-cta">
+        <h2 class="footer-heading">Never miss a drop</h2>
+        <p>Books, shop releases, and systems essays — one list.</p>
+        <a class="btn btn-gold" href="#subscribe">Subscribe</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <p>&copy; <span id="year">2026</span> R.C.S. Creary. All rights reserved.</p>
+        <p class="footer-sub">Real Realize · creator brand</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
