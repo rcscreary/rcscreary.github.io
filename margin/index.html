@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MARGIN — Reimagine the next 90 days</title>
+  <meta name="description" content="See where money is already leaving. Rehearse the next 90 days. Leave with one cut that creates room. A quiet household instrument by R.C.S. Creary." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1f2a;
+      --ink-soft: #3a4252;
+      --muted: #6b7280;
+      --cream: #f4efe6;
+      --cream-deep: #e8e0d2;
+      --paper: #faf7f1;
+      --line: rgba(26, 31, 42, 0.12);
+      --gold: #a8894a;
+      --gold-dim: rgba(168, 137, 74, 0.2);
+      --navy: #161c28;
+      --navy-mid: #222a3a;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Source Sans 3", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--ink-soft); text-underline-offset: 0.15em; }
+    a:hover { color: var(--gold); }
+    .wrap { width: min(720px, calc(100% - 2.5rem)); margin: 0 auto; }
+    .wrap-wide { width: min(960px, calc(100% - 2.5rem)); margin: 0 auto; }
+
+    header.site {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(244, 239, 230, 0.08);
+    }
+    header.site .bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .logo span { color: var(--gold); letter-spacing: 0.08em; font-weight: 500; text-transform: none; font-size: 0.85em; margin-left: 0.35rem; }
+    .nav a {
+      color: rgba(244, 239, 230, 0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 1.25rem;
+    }
+    .nav a:hover { color: var(--gold); }
+
+    .hero {
+      background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: var(--cream);
+      padding: 4.5rem 0 4rem;
+    }
+    .hero .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 1rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin: 0 0 1.25rem;
+      letter-spacing: -0.01em;
+    }
+    .hero .promise {
+      font-size: 1.2rem;
+      color: rgba(244, 239, 230, 0.88);
+      max-width: 36em;
+      margin: 0 0 2rem;
+    }
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.75rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .price {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+    .price small {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(244, 239, 230, 0.65);
+      margin-left: 0.35rem;
+    }
+    .price-note {
+      font-size: 0.9rem;
+      color: rgba(244, 239, 230, 0.55);
+      max-width: 22em;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.5rem;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-gold:hover { background: #c4a25c; color: var(--navy); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--cream);
+      border-color: rgba(244, 239, 230, 0.35);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    section { padding: 3.5rem 0; }
+    section h2 {
+      font-family: var(--serif);
+      font-size: 1.85rem;
+      font-weight: 600;
+      margin: 0 0 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .muted { color: var(--muted); }
+
+    .gets {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .gets { grid-template-columns: 1fr 1fr; }
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 1.35rem 1.4rem;
+      border-radius: 2px;
+    }
+    .card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      margin: 0 0 0.4rem;
+      font-weight: 600;
+    }
+    .card p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+
+    .split {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 700px) {
+      .split { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    .who {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      padding: 1.5rem;
+    }
+    .who h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      margin: 0 0 0.75rem;
+    }
+    .who ul { margin: 0; padding-left: 1.15rem; color: var(--ink-soft); }
+    .who li { margin-bottom: 0.4rem; }
+    .who.not { background: #fff; }
+
+    .privacy {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 2.5rem 0;
+    }
+    .privacy p { margin: 0; max-width: 40em; color: rgba(244, 239, 230, 0.85); }
+    .privacy strong { color: var(--gold); font-weight: 600; }
+
+    .final-cta {
+      text-align: center;
+      padding: 4rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .final-cta p.lead {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      margin: 0 0 1.5rem;
+      line-height: 1.35;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    footer .attr { margin-top: 0.5rem; }
+    footer a { color: var(--ink-soft); }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap-wide bar">
+      <a class="logo" href="index.html">MARGIN <span>— 90 days</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="app.html">Try instrument</a>
+        <a href="#buy">Buy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Household money instrument</p>
+      <h1>MARGIN — Reimagine the next 90 days</h1>
+      <p class="promise">See where money is already leaving. Rehearse the next 90 days. Leave with one cut that creates room.</p>
+      <div class="price-row">
+        <div class="price">$47 <small>once</small></div>
+        <p class="price-note">Optional cloud sync later at $9/mo — not required. You own the instrument on your device.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#buy">Buy on Gumroad</a>
+        <a class="btn btn-ghost" href="app.html">Open the instrument (demo)</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="what">
+    <div class="wrap">
+      <h2>What you get</h2>
+      <div class="gets">
+        <div class="card">
+          <h3>The instrument</h3>
+          <p>A self-contained web app: income, cash, repeating charges, Keep / Review / Cut verdicts. Data stays in your browser.</p>
+        </div>
+        <div class="card">
+          <h3>Example household</h3>
+          <p>One-click sample data so you can rehearse Situations before entering your own numbers.</p>
+        </div>
+        <div class="card">
+          <h3>90-day printable report</h3>
+          <p>Current picture, scenario runway, Cut list with dollars, and one recommended cut for this week.</p>
+        </div>
+        <div class="card">
+          <h3>10-minute weekly ritual</h3>
+          <p>A one-page printable checklist for payday or Sunday — free lead magnet; also bundled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Who it’s for</h2>
+      <div class="split">
+        <div class="who">
+          <h3>For you if…</h3>
+          <ul>
+            <li>You can pay essential bills but feel the month closing in.</li>
+            <li>You want to see what a hours cut or rent bump does to runway — before it happens.</li>
+            <li>You’ll make one deliberate cut this week, not rebuild your whole life overnight.</li>
+          </ul>
+        </div>
+        <div class="who not">
+          <h3>Not for you if…</h3>
+          <ul>
+            <li>You’re in active debt crisis, collections spiral, or can’t cover basics — talk to a nonprofit credit counselor or legal aid first.</li>
+            <li>You want bank login, auto-import, or a “set and forget” dashboard.</li>
+            <li>You’re looking for hustle slogans or investment advice. This is a household rehearsal tool.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="privacy">
+    <div class="wrap">
+      <p><strong>No bank login.</strong> Nothing syncs to a server in the base product. Your numbers live on this device (localStorage). Export JSON when you want a backup.</p>
+    </div>
+  </div>
+
+  <section class="final-cta" id="buy">
+    <div class="wrap">
+      <p class="lead">One payment. The instrument is yours.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn btn-gold" href="#buy">Buy on Gumroad — $47</a>
+        <a class="btn btn-ghost" href="app.html" style="color:var(--ink);border-color:var(--line)">Try the demo first</a>
+      </div>
+      <p class="muted" style="margin-top:1.25rem;font-size:0.9rem">Replace this #buy link with your live Gumroad or Lemon Squeezy checkout URL.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap-wide">
+      <div>MARGIN — Reimagine the next 90 days</div>
+      <div class="attr">R.C.S. Creary · <a href="https://rcscreary.github.io/">rcscreary.github.io</a></div>
+    </div>
+  </footer>
+</body>
+</html>

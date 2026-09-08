@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MARGIN — Instrument</title>
+  <meta name="description" content="MARGIN household instrument: see where money leaves, rehearse 90 days, leave with one cut." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1f2a;
+      --ink-soft: #3a4252;
+      --muted: #6b7280;
+      --cream: #f4efe6;
+      --paper: #faf7f1;
+      --line: rgba(26, 31, 42, 0.12);
+      --line-strong: rgba(26, 31, 42, 0.22);
+      --gold: #a8894a;
+      --navy: #161c28;
+      --navy-mid: #222a3a;
+      --keep: #2f5d4a;
+      --review: #8a6a2f;
+      --cut: #7a3a3a;
+      --keep-bg: rgba(47, 93, 74, 0.1);
+      --review-bg: rgba(138, 106, 47, 0.12);
+      --cut-bg: rgba(122, 58, 58, 0.1);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Source Sans 3", system-ui, sans-serif;
+      --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--ink-soft); }
+    a:hover { color: var(--gold); }
+    .topbar {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 0.85rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(244, 239, 230, 0.08);
+    }
+    .topbar-inner {
+      width: min(1080px, calc(100% - 1.5rem));
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem 1rem;
+    }
+    .brand {
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 1.05rem;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .brand small {
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 500;
+      color: var(--gold);
+      margin-left: 0.35rem;
+      font-size: 0.85em;
+    }
+    .top-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.85rem;
+      font: 600 0.85rem var(--sans);
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      color: inherit;
+      text-decoration: none;
+    }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn-gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .btn-gold:hover:not(:disabled) { filter: brightness(1.06); }
+    .btn-outline {
+      border-color: rgba(244, 239, 230, 0.35);
+      color: var(--cream);
+    }
+    .btn-outline:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+    .btn-ink {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+    }
+    .btn-ink:hover:not(:disabled) { background: var(--navy-mid); }
+    .btn-ghost-ink {
+      border-color: var(--line-strong);
+      color: var(--ink-soft);
+      background: #fff;
+    }
+    .btn-ghost-ink:hover:not(:disabled) { border-color: var(--gold); color: var(--ink); }
+    .btn-danger {
+      border-color: rgba(122, 58, 58, 0.4);
+      color: var(--cut);
+      background: #fff;
+    }
+    .btn-sm { padding: 0.35rem 0.6rem; font-size: 0.8rem; }
+
+    main {
+      width: min(1080px, calc(100% - 1.5rem));
+      margin: 0 auto;
+      padding: 1.5rem 0 4rem;
+      display: grid;
+      gap: 1.25rem;
+    }
+    .panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 1.25rem 1.35rem;
+    }
+    .panel h2 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+    }
+    .panel .hint {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .grid-2 {
+      display: grid;
+      gap: 0.85rem;
+    }
+    @media (min-width: 640px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+    .grid-4 {
+      display: grid;
+      gap: 0.85rem;
+    }
+    @media (min-width: 720px) {
+      .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    }
+    label.field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      letter-spacing: 0.02em;
+    }
+    input, select, textarea {
+      font: 400 1rem var(--sans);
+      padding: 0.55rem 0.65rem;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--ink);
+      width: 100%;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--gold);
+      outline-offset: 1px;
+      background: #fff;
+    }
+
+    .metrics {
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .metrics { grid-template-columns: repeat(3, 1fr); }
+    }
+    .metric {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      padding: 1rem 1.1rem;
+    }
+    .metric .label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .metric .value {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .metric .sub { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+    .metric.good .value { color: var(--keep); }
+    .metric.warn .value { color: var(--review); }
+    .metric.bad .value { color: var(--cut); }
+
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table.charges {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      min-width: 640px;
+    }
+    table.charges th {
+      text-align: left;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.5rem 0.4rem;
+      border-bottom: 1px solid var(--line-strong);
+      font-weight: 600;
+    }
+    table.charges td {
+      padding: 0.4rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    table.charges input, table.charges select {
+      padding: 0.4rem 0.45rem;
+      font-size: 0.9rem;
+      background: #fff;
+    }
+    table.charges .amt { width: 6.5rem; }
+    table.charges .cad { width: 7.5rem; }
+    table.charges .ver { width: 7rem; }
+    table.charges .cat { width: 7.5rem; }
+    table.charges .actions { width: 4.5rem; white-space: nowrap; }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+    }
+    .badge-keep { background: var(--keep-bg); color: var(--keep); }
+    .badge-review { background: var(--review-bg); color: var(--review); }
+    .badge-cut { background: var(--cut-bg); color: var(--cut); }
+
+    .situations {
+      background: var(--navy);
+      color: var(--cream);
+      border: none;
+    }
+    .situations h2 { color: var(--cream); }
+    .situations .hint { color: rgba(244, 239, 230, 0.65); }
+    .situations label.field { color: rgba(244, 239, 230, 0.8); }
+    .situations input[type="range"] {
+      width: 100%;
+      padding: 0;
+      background: transparent;
+      border: none;
+      accent-color: var(--gold);
+    }
+    .situations input[type="number"] {
+      background: var(--navy-mid);
+      border-color: rgba(244, 239, 230, 0.2);
+      color: var(--cream);
+    }
+    .sit-row {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 700px) {
+      .sit-row { grid-template-columns: 1.2fr 1.2fr 1fr; }
+    }
+    .sit-value {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-top: 0.25rem;
+    }
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(244, 239, 230, 0.12);
+      font-size: 0.95rem;
+    }
+    .toggle-row input { width: auto; accent-color: var(--gold); }
+    .sit-metrics {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 560px) {
+      .sit-metrics { grid-template-columns: 1fr 1fr; }
+    }
+    .sit-metric {
+      background: var(--navy-mid);
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(244, 239, 230, 0.1);
+    }
+    .sit-metric .label {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(244, 239, 230, 0.55);
+    }
+    .sit-metric .value {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 0.15rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+    .ritual-tip {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 0.9rem 1rem;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+    .ritual-tip a { font-weight: 600; }
+
+    .report {
+      display: none;
+    }
+    .report.show { display: block; }
+    .report-inner {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 1.75rem;
+    }
+    .report-inner h2 {
+      font-family: var(--serif);
+      margin: 0 0 0.25rem;
+    }
+    .report-meta { color: var(--muted); font-size: 0.88rem; margin-bottom: 1.25rem; }
+    .report-block { margin-bottom: 1.35rem; }
+    .report-block h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      margin: 0 0 0.5rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.35rem;
+    }
+    .report-block ul { margin: 0.35rem 0 0; padding-left: 1.15rem; }
+    .report-cut {
+      background: var(--cut-bg);
+      border: 1px solid rgba(122, 58, 58, 0.25);
+      padding: 1rem;
+      margin-top: 0.75rem;
+    }
+    .report-cut strong { color: var(--cut); }
+
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding: 0.5rem 0 2rem;
+    }
+
+    @media print {
+      .topbar, .no-print, .ritual-tip { display: none !important; }
+      body { background: #fff; }
+      main { width: 100%; padding: 0; }
+      .panel:not(.report) { display: none !important; }
+      .report { display: block !important; }
+      .report-inner { border: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">MARGIN <small>instrument</small></a>
+      <div class="top-actions no-print">
+        <button type="button" class="btn btn-outline" id="btn-example">Load example</button>
+        <button type="button" class="btn btn-outline" id="btn-report">90-day report</button>
+        <button type="button" class="btn btn-gold" id="btn-export">Export JSON</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="section-inputs" aria-labelledby="h-inputs">
+      <h2 id="h-inputs">A · Inputs</h2>
+      <p class="hint">Monthly take-home and cash on hand. No bank connection — you type what you know.</p>
+      <div class="grid-2">
+        <label class="field">Monthly take-home income ($)
+          <input type="number" id="income" min="0" step="1" inputmode="decimal" placeholder="4200" />
+        </label>
+        <label class="field">Current cash on hand ($)
+          <input type="number" id="cash" min="0" step="1" inputmode="decimal" placeholder="1800" />
+        </label>
+      </div>
+    </section>
+
+    <section class="panel" id="section-summary" aria-labelledby="h-summary">
+      <h2 id="h-summary">C · Summary</h2>
+      <p class="hint">Baseline — before Situations. Remaining = income − monthly out. Runway uses cash against deficit.</p>
+      <div class="metrics">
+        <div class="metric">
+          <div class="label">Monthly out</div>
+          <div class="value" id="m-out">$0</div>
+          <div class="sub" id="m-out-sub">all repeating charges</div>
+        </div>
+        <div class="metric" id="metric-remain">
+          <div class="label">Remaining after bills</div>
+          <div class="value" id="m-remain">$0</div>
+          <div class="sub">income − monthly out</div>
+        </div>
+        <div class="metric" id="metric-runway">
+          <div class="label">Runway</div>
+          <div class="value" id="m-runway">—</div>
+          <div class="sub" id="m-runway-sub">cash ÷ |monthly net| if deficit</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="section-charges" aria-labelledby="h-charges">
+      <h2 id="h-charges">B · Repeating charges</h2>
+      <p class="hint">Name, amount, optional category, cadence. Weekly amounts convert to monthly (×52/12). Verdict: Keep · Review · Cut.</p>
+      <div class="toolbar no-print">
+        <button type="button" class="btn btn-ink" id="btn-add">+ Add charge</button>
+      </div>
+      <div class="table-wrap">
+        <table class="charges" aria-label="Repeating charges">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Cadence</th>
+              <th>Category</th>
+              <th>Verdict</th>
+              <th class="actions"></th>
+            </tr>
+          </thead>
+          <tbody id="charges-body"></tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:0.75rem;margin-bottom:0" id="charges-empty">No charges yet. Add one, or load the example household.</p>
+    </section>
+
+    <section class="panel situations" id="section-situations" aria-labelledby="h-sit">
+      <h2 id="h-sit">D · Situations <span style="font-size:0.7em;color:var(--gold);font-weight:500;letter-spacing:0.04em">(paid feature)</span></h2>
+      <p class="hint">Rehearse shocks and relief. Live recalculation of monthly net and runway under the scenario.</p>
+      <div class="sit-row">
+        <div>
+          <label class="field">Income change %
+            <input type="range" id="sit-income" min="-50" max="50" step="1" value="0" />
+          </label>
+          <div class="sit-value" id="sit-income-val">0%</div>
+        </div>
+        <div>
+          <label class="field">Rent / housing change %
+            <input type="range" id="sit-rent" min="-20" max="40" step="1" value="0" />
+          </label>
+          <div class="sit-value" id="sit-rent-val">0%</div>
+        </div>
+        <div>
+          <label class="field">Extra work income $/mo
+            <input type="number" id="sit-extra" min="0" step="25" value="0" />
+          </label>
+        </div>
+      </div>
+      <div class="toggle-row">
+        <input type="checkbox" id="sit-apply-cuts" />
+        <label for="sit-apply-cuts">Apply Cuts — zero out charges marked Cut</label>
+      </div>
+      <div class="sit-metrics">
+        <div class="sit-metric">
+          <div class="label">Scenario monthly net</div>
+          <div class="value" id="sit-net">$0</div>
+        </div>
+        <div class="sit-metric">
+          <div class="label">Scenario runway</div>
+          <div class="value" id="sit-runway">—</div>
+        </div>
+      </div>
+    </section>
+
+    <p class="ritual-tip no-print">
+      <strong>10-minute weekly ritual.</strong>
+      Add new charges, kill one Cut, glance at −20% income once, close the tab.
+      <a href="MARGIN-Weekly-Ritual.pdf">Download the one-page PDF</a>
+      · <a href="ritual-weekly.md">Markdown</a>
+    </p>
+
+    <section class="panel no-print" id="section-data" aria-labelledby="h-data">
+      <h2 id="h-data">G · Data</h2>
+      <p class="hint">Persisted in localStorage key <code>margin-v1</code>. Export before clearing.</p>
+      <div class="toolbar">
+        <button type="button" class="btn btn-ghost-ink" id="btn-import">Import JSON</button>
+        <button type="button" class="btn btn-ghost-ink" id="btn-export-2">Export JSON</button>
+        <button type="button" class="btn btn-danger" id="btn-clear">Clear data</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden />
+      </div>
+    </section>
+
+    <section class="panel report" id="section-report" aria-labelledby="h-report">
+      <div class="report-inner" id="report-content">
+        <h2 id="h-report">MARGIN · 90-day report</h2>
+        <p class="report-meta" id="report-date"></p>
+        <div id="report-body"></div>
+        <div class="toolbar no-print" style="margin-top:1.25rem">
+          <button type="button" class="btn btn-ink" id="btn-print">Print / Save PDF</button>
+          <button type="button" class="btn btn-ghost-ink" id="btn-close-report">Close report</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <p class="footer-note">MARGIN · R.C.S. Creary · data stays on this device</p>
+
+  <script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "margin-v1";
+  var HOUSING_CATS = { housing: 1, rent: 1, mortgage: 1 };
+
+  var state = {
+    income: 0,
+    cash: 0,
+    charges: [],
+    situations: {
+      incomePct: 0,
+      rentPct: 0,
+      extra: 0,
+      applyCuts: false
+    }
+  };
+
+  var EXAMPLE = {
+    income: 4850,
+    cash: 2400,
+    charges: [
+      { id: "ex1", name: "Rent", amount: 1650, cadence: "monthly", category: "Housing", verdict: "Keep" },
+      { id: "ex2", name: "Car insurance", amount: 128, cadence: "monthly", category: "Transport", verdict: "Keep" },
+      { id: "ex3", name: "Phone", amount: 85, cadence: "monthly", category: "Utilities", verdict: "Keep" },
+      { id: "ex4", name: "Internet", amount: 70, cadence: "monthly", category: "Utilities", verdict: "Keep" },
+      { id: "ex5", name: "Groceries (avg)", amount: 520, cadence: "monthly", category: "Food", verdict: "Keep" },
+      { id: "ex6", name: "Electric / gas", amount: 145, cadence: "monthly", category: "Utilities", verdict: "Keep" },
+      { id: "ex7", name: "Student loan", amount: 210, cadence: "monthly", category: "Debt", verdict: "Keep" },
+      { id: "ex8", name: "Gym", amount: 49, cadence: "monthly", category: "Lifestyle", verdict: "Review" },
+      { id: "ex9", name: "Streaming bundle", amount: 52, cadence: "monthly", category: "Subscriptions", verdict: "Review" },
+      { id: "ex10", name: "Cloud storage Pro", amount: 12, cadence: "monthly", category: "Subscriptions", verdict: "Cut" },
+      { id: "ex11", name: "Meal kit leftover", amount: 68, cadence: "monthly", category: "Food", verdict: "Cut" },
+      { id: "ex12", name: "Unused SaaS seat", amount: 29, cadence: "monthly", category: "Subscriptions", verdict: "Cut" },
+      { id: "ex13", name: "Impulse app boxes", amount: 35, cadence: "monthly", category: "Lifestyle", verdict: "Cut" },
+      { id: "ex14", name: "Premium audio unused", amount: 16, cadence: "monthly", category: "Subscriptions", verdict: "Cut" },
+      { id: "ex15", name: "Gaming pass (idle)", amount: 24, cadence: "monthly", category: "Lifestyle", verdict: "Cut" },
+      { id: "ex16", name: "Coffee delivery sub", amount: 28, cadence: "weekly", category: "Food", verdict: "Review" }
+    ],
+    situations: { incomePct: 0, rentPct: 0, extra: 0, applyCuts: false }
+  };
+
+  function uid() {
+    return "c" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  }
+
+  function money(n) {
+    var v = Number(n) || 0;
+    var sign = v < 0 ? "-" : "";
+    return sign + "$" + Math.abs(v).toLocaleString(undefined, { maximumFractionDigits: 0 });
+  }
+
+  function toMonthly(amount, cadence) {
+    var a = Number(amount) || 0;
+    if (cadence === "weekly") return a * 52 / 12;
+    if (cadence === "yearly") return a / 12;
+    return a;
+  }
+
+  function isHousing(charge) {
+    var cat = (charge.category || "").trim().toLowerCase();
+    var name = (charge.name || "").trim().toLowerCase();
+    if (HOUSING_CATS[cat]) return true;
+    if (/rent|mortgage|housing/.test(name)) return true;
+    return false;
+  }
+
+  function baseline() {
+    var out = 0;
+    state.charges.forEach(function (c) {
+      out += toMonthly(c.amount, c.cadence);
+    });
+    var income = Number(state.income) || 0;
+    var cash = Number(state.cash) || 0;
+    var remain = income - out;
+    var runway;
+    var runwayLabel;
+    if (remain >= 0) {
+      runway = null;
+      runwayLabel = "not burning";
+    } else {
+      var burn = Math.abs(remain);
+      runway = burn > 0 ? cash / burn : null;
+      runwayLabel = runway != null ? runway.toFixed(1) + " mo" : "—";
+    }
+    return { out: out, income: income, cash: cash, remain: remain, runway: runway, runwayLabel: runwayLabel };
+  }
+
+  function scenario() {
+    var sit = state.situations;
+    var incomeBase = Number(state.income) || 0;
+    var cash = Number(state.cash) || 0;
+    var incomeAdj = incomeBase * (1 + (Number(sit.incomePct) || 0) / 100) + (Number(sit.extra) || 0);
+    var out = 0;
+    state.charges.forEach(function (c) {
+      if (sit.applyCuts && c.verdict === "Cut") return;
+      var m = toMonthly(c.amount, c.cadence);
+      if (isHousing(c)) {
+        m = m * (1 + (Number(sit.rentPct) || 0) / 100);
+      }
+      out += m;
+    });
+    var net = incomeAdj - out;
+    var runwayLabel;
+    var runway;
+    if (net >= 0) {
+      runway = null;
+      runwayLabel = "not burning";
+    } else {
+      var burn = Math.abs(net);
+      runway = burn > 0 ? cash / burn : null;
+      runwayLabel = runway != null ? runway.toFixed(1) + " mo" : "—";
+    }
+    return { incomeAdj: incomeAdj, out: out, net: net, runway: runway, runwayLabel: runwayLabel };
+  }
+
+  function cutTotal() {
+    var t = 0;
+    var items = [];
+    state.charges.forEach(function (c) {
+      if (c.verdict === "Cut") {
+        var m = toMonthly(c.amount, c.cadence);
+        t += m;
+        items.push({ name: c.name, monthly: m });
+      }
+    });
+    return { total: t, items: items };
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) { /* ignore quota */ }
+  }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      if (typeof data.income === "number") state.income = data.income;
+      if (typeof data.cash === "number") state.cash = data.cash;
+      if (Array.isArray(data.charges)) state.charges = data.charges;
+      if (data.situations && typeof data.situations === "object") {
+        state.situations = Object.assign({}, state.situations, data.situations);
+      }
+    } catch (e) { /* corrupt — start fresh */ }
+  }
+
+  function renderCharges() {
+    var tbody = document.getElementById("charges-body");
+    var empty = document.getElementById("charges-empty");
+    tbody.innerHTML = "";
+    empty.style.display = state.charges.length ? "none" : "block";
+
+    state.charges.forEach(function (c, idx) {
+      var tr = document.createElement("tr");
+      tr.dataset.id = c.id;
+
+      var tdName = document.createElement("td");
+      var inName = document.createElement("input");
+      inName.type = "text";
+      inName.value = c.name || "";
+      inName.setAttribute("aria-label", "Charge name");
+      inName.addEventListener("change", function () {
+        state.charges[idx].name = inName.value;
+        save(); renderSummary(); renderSituations();
+      });
+      tdName.appendChild(inName);
+
+      var tdAmt = document.createElement("td");
+      tdAmt.className = "amt";
+      var inAmt = document.createElement("input");
+      inAmt.type = "number";
+      inAmt.min = "0";
+      inAmt.step = "0.01";
+      inAmt.value = c.amount;
+      inAmt.setAttribute("aria-label", "Amount");
+      inAmt.addEventListener("change", function () {
+        state.charges[idx].amount = Number(inAmt.value) || 0;
+        save(); renderSummary(); renderSituations();
+      });
+      tdAmt.appendChild(inAmt);
+
+      var tdCad = document.createElement("td");
+      tdCad.className = "cad";
+      var selCad = document.createElement("select");
+      selCad.setAttribute("aria-label", "Cadence");
+      [["monthly", "Monthly"], ["weekly", "Weekly"], ["yearly", "Yearly"]].forEach(function (opt) {
+        var o = document.createElement("option");
+        o.value = opt[0];
+        o.textContent = opt[1];
+        if (c.cadence === opt[0]) o.selected = true;
+        selCad.appendChild(o);
+      });
+      selCad.addEventListener("change", function () {
+        state.charges[idx].cadence = selCad.value;
+        save(); renderSummary(); renderSituations();
+      });
+      tdCad.appendChild(selCad);
+
+      var tdCat = document.createElement("td");
+      tdCat.className = "cat";
+      var inCat = document.createElement("input");
+      inCat.type = "text";
+      inCat.value = c.category || "";
+      inCat.placeholder = "optional";
+      inCat.setAttribute("aria-label", "Category");
+      inCat.addEventListener("change", function () {
+        state.charges[idx].category = inCat.value;
+        save(); renderSituations();
+      });
+      tdCat.appendChild(inCat);
+
+      var tdVer = document.createElement("td");
+      tdVer.className = "ver";
+      var selVer = document.createElement("select");
+      selVer.setAttribute("aria-label", "Verdict");
+      ["Keep", "Review", "Cut"].forEach(function (v) {
+        var o = document.createElement("option");
+        o.value = v;
+        o.textContent = v;
+        if (c.verdict === v) o.selected = true;
+        selVer.appendChild(o);
+      });
+      selVer.addEventListener("change", function () {
+        state.charges[idx].verdict = selVer.value;
+        save(); renderSummary(); renderSituations();
+      });
+      tdVer.appendChild(selVer);
+
+      var tdAct = document.createElement("td");
+      tdAct.className = "actions";
+      var del = document.createElement("button");
+      del.type = "button";
+      del.className = "btn btn-sm btn-danger";
+      del.textContent = "Del";
+      del.setAttribute("aria-label", "Delete charge");
+      del.addEventListener("click", function () {
+        state.charges.splice(idx, 1);
+        save(); renderAll();
+      });
+      tdAct.appendChild(del);
+
+      tr.appendChild(tdName);
+      tr.appendChild(tdAmt);
+      tr.appendChild(tdCad);
+      tr.appendChild(tdCat);
+      tr.appendChild(tdVer);
+      tr.appendChild(tdAct);
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderSummary() {
+    var b = baseline();
+    document.getElementById("m-out").textContent = money(b.out);
+    document.getElementById("m-remain").textContent = money(b.remain);
+    document.getElementById("m-runway").textContent = b.runwayLabel === "not burning" ? "not burning" : b.runwayLabel;
+
+    var mr = document.getElementById("metric-remain");
+    mr.className = "metric " + (b.remain >= 0 ? "good" : "bad");
+    var rw = document.getElementById("metric-runway");
+    if (b.remain >= 0) rw.className = "metric good";
+    else if (b.runway != null && b.runway < 3) rw.className = "metric bad";
+    else rw.className = "metric warn";
+
+    var cuts = cutTotal();
+    document.getElementById("m-out-sub").textContent =
+      state.charges.length + " charges · Cut-able ≈ " + money(cuts.total) + "/mo";
+  }
+
+  function renderSituations() {
+    var sit = state.situations;
+    document.getElementById("sit-income").value = sit.incomePct;
+    document.getElementById("sit-rent").value = sit.rentPct;
+    document.getElementById("sit-extra").value = sit.extra;
+    document.getElementById("sit-apply-cuts").checked = !!sit.applyCuts;
+    document.getElementById("sit-income-val").textContent =
+      (sit.incomePct > 0 ? "+" : "") + sit.incomePct + "%";
+    document.getElementById("sit-rent-val").textContent =
+      (sit.rentPct > 0 ? "+" : "") + sit.rentPct + "%";
+
+    var sc = scenario();
+    document.getElementById("sit-net").textContent = money(sc.net);
+    document.getElementById("sit-runway").textContent =
+      sc.runwayLabel === "not burning" ? "not burning" : sc.runwayLabel;
+  }
+
+  function renderInputs() {
+    document.getElementById("income").value = state.income || "";
+    document.getElementById("cash").value = state.cash || "";
+  }
+
+  function renderAll() {
+    renderInputs();
+    renderCharges();
+    renderSummary();
+    renderSituations();
+  }
+
+  function buildReport() {
+    var b = baseline();
+    var sc = scenario();
+    var cuts = cutTotal();
+    var sit = state.situations;
+    var now = new Date();
+    document.getElementById("report-date").textContent =
+      "Generated " + now.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" }) +
+      " · next 90 days rehearsal";
+
+    var rec = cuts.items.slice().sort(function (a, b) { return b.monthly - a.monthly; })[0];
+    var html = "";
+    html += '<div class="report-block"><h3>Current picture</h3>';
+    html += "<ul>";
+    html += "<li>Take-home: " + money(b.income) + "/mo</li>";
+    html += "<li>Cash on hand: " + money(b.cash) + "</li>";
+    html += "<li>Monthly out: " + money(b.out) + "</li>";
+    html += "<li>Remaining after bills: " + money(b.remain) + "</li>";
+    html += "<li>Runway: " + (b.runwayLabel === "not burning" ? "not burning (surplus)" : b.runwayLabel) + "</li>";
+    html += "</ul></div>";
+
+    html += '<div class="report-block"><h3>Situation scenario</h3>';
+    html += "<ul>";
+    html += "<li>Income change: " + sit.incomePct + "%</li>";
+    html += "<li>Housing change: " + sit.rentPct + "%</li>";
+    html += "<li>Extra work: " + money(sit.extra) + "/mo</li>";
+    html += "<li>Apply Cuts: " + (sit.applyCuts ? "yes" : "no") + "</li>";
+    html += "<li>Scenario monthly net: " + money(sc.net) + "</li>";
+    html += "<li>Scenario runway: " + (sc.runwayLabel === "not burning" ? "not burning" : sc.runwayLabel) + "</li>";
+    html += "</ul></div>";
+
+    html += '<div class="report-block"><h3>Cut list</h3>';
+    if (!cuts.items.length) {
+      html += "<p>No charges marked Cut yet.</p>";
+    } else {
+      html += "<ul>";
+      cuts.items.forEach(function (it) {
+        html += "<li>" + escapeHtml(it.name) + " — " + money(it.monthly) + "/mo</li>";
+      });
+      html += "</ul>";
+      html += "<p><strong>Total Cut-able: " + money(cuts.total) + "/mo</strong> · ≈ " + money(cuts.total * 3) + " over 90 days</p>";
+    }
+    html += "</div>";
+
+    html += '<div class="report-cut">';
+    if (rec) {
+      html += "<strong>One recommended cut this week:</strong> " + escapeHtml(rec.name) +
+        " (" + money(rec.monthly) + "/mo). Cancel or pause it before next payday. Then re-open MARGIN and mark it gone.";
+    } else {
+      html += "<strong>One recommended cut this week:</strong> Mark at least one fluff charge as Cut, then return here.";
+    }
+    html += "</div>";
+
+    document.getElementById("report-body").innerHTML = html;
+    document.getElementById("section-report").classList.add("show");
+    document.getElementById("section-report").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function addCharge(partial) {
+    state.charges.push({
+      id: uid(),
+      name: (partial && partial.name) || "",
+      amount: (partial && partial.amount) || 0,
+      cadence: (partial && partial.cadence) || "monthly",
+      category: (partial && partial.category) || "",
+      verdict: (partial && partial.verdict) || "Review"
+    });
+    save();
+    renderAll();
+  }
+
+  function bind() {
+    document.getElementById("income").addEventListener("input", function (e) {
+      state.income = Number(e.target.value) || 0;
+      save(); renderSummary(); renderSituations();
+    });
+    document.getElementById("cash").addEventListener("input", function (e) {
+      state.cash = Number(e.target.value) || 0;
+      save(); renderSummary(); renderSituations();
+    });
+
+    document.getElementById("sit-income").addEventListener("input", function (e) {
+      state.situations.incomePct = Number(e.target.value) || 0;
+      save(); renderSituations();
+    });
+    document.getElementById("sit-rent").addEventListener("input", function (e) {
+      state.situations.rentPct = Number(e.target.value) || 0;
+      save(); renderSituations();
+    });
+    document.getElementById("sit-extra").addEventListener("input", function (e) {
+      state.situations.extra = Number(e.target.value) || 0;
+      save(); renderSituations();
+    });
+    document.getElementById("sit-apply-cuts").addEventListener("change", function (e) {
+      state.situations.applyCuts = !!e.target.checked;
+      save(); renderSituations();
+    });
+
+    document.getElementById("btn-add").addEventListener("click", function () {
+      addCharge({ name: "New charge", amount: 0, cadence: "monthly", verdict: "Review" });
+    });
+
+    document.getElementById("btn-example").addEventListener("click", function () {
+      if (state.charges.length && !confirm("Replace current data with the example household?")) return;
+      state = JSON.parse(JSON.stringify(EXAMPLE));
+      save();
+      renderAll();
+    });
+
+    document.getElementById("btn-report").addEventListener("click", buildReport);
+    document.getElementById("btn-print").addEventListener("click", function () { window.print(); });
+    document.getElementById("btn-close-report").addEventListener("click", function () {
+      document.getElementById("section-report").classList.remove("show");
+    });
+
+    function doExport() {
+      var blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "margin-export.json";
+      a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    }
+    document.getElementById("btn-export").addEventListener("click", doExport);
+    document.getElementById("btn-export-2").addEventListener("click", doExport);
+
+    document.getElementById("btn-import").addEventListener("click", function () {
+      document.getElementById("import-file").click();
+    });
+    document.getElementById("import-file").addEventListener("change", function (e) {
+      var file = e.target.files && e.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function () {
+        try {
+          var data = JSON.parse(reader.result);
+          if (typeof data.income !== "number" && !Array.isArray(data.charges)) {
+            throw new Error("Invalid MARGIN file");
+          }
+          state.income = Number(data.income) || 0;
+          state.cash = Number(data.cash) || 0;
+          state.charges = Array.isArray(data.charges) ? data.charges : [];
+          state.situations = Object.assign(
+            { incomePct: 0, rentPct: 0, extra: 0, applyCuts: false },
+            data.situations || {}
+          );
+          save();
+          renderAll();
+        } catch (err) {
+          alert("Could not import JSON. Check the file format.");
+        }
+        e.target.value = "";
+      };
+      reader.readAsText(file);
+    });
+
+    document.getElementById("btn-clear").addEventListener("click", function () {
+      if (!confirm("Clear all MARGIN data on this device?")) return;
+      state = {
+        income: 0,
+        cash: 0,
+        charges: [],
+        situations: { incomePct: 0, rentPct: 0, extra: 0, applyCuts: false }
+      };
+      localStorage.removeItem(STORAGE_KEY);
+      renderAll();
+    });
+  }
+
+  load();
+  bind();
+  renderAll();
+})();
+  </script>
+</body>
+</html>
